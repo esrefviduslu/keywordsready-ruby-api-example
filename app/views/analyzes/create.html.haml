@@ -1,0 +1,10 @@
+= render 'analyzes/form'
+
+.container
+  .content
+    .mt-80
+      .page-header
+        - if @response.present?
+          %h5 Server Response
+          %pre
+            = @response.inspect
