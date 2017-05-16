@@ -7,16 +7,12 @@ development: &default
   timeout: 5000
   host: localhost
   port: 5432
-  username: postgres
-  password: 12341234
+
 test:
   <<: *default
   database: keywordsready-ruby-api-example_test
-  username: postgres
-  password: 12341234
+
 
 production:
   <<: *default
   database: keywordsready-ruby-api-example_production
-  username: postgres
-  password: 12341234
