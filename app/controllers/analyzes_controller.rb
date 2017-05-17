@@ -4,10 +4,11 @@ class AnalyzesController < ApplicationController
   end
 
   def create
-    hash = params[:analyzes]
-    api_key = hash['api_key']
-    api_url = hash['api_url']
-    response = RestClient.get('https://keywordsready.com/api/analyzes?url=' + api_url, api_key.present? ? {'api-key': api_key} : nil)
-    @response = JSON.parse(response.body)
+    hash        = params[:analyzes]
+    url         = 'https://keywordsready.com/api/analyzes'
+    hash['url'].present? ?     request = {'url': hash['url']}         : request = nil
+    hash['api_key'].present? ? headers = {'api-key': hash['api_key']} : headers = nil
+    response    = RestClient.post url, request, headers
+    @response   = JSON.parse(response.body)
   end
 end
