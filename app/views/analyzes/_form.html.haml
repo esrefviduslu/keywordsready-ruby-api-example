@@ -6,7 +6,7 @@
       .col-md-4
         = simple_form_for :analyzes, url: analyzes_path, method: :post do |f|
           = f.input :api_key, input_html: { class: 'form-control input-md', value: params[:analyzes].present? ? params[:analyzes][:api_key] : nil }
-          = f.input :api_url, label: 'Picture URL', input_html: { class: 'form-control input-md', value: params[:analyzes].present? ? params[:analyzes][:api_url] : nil }
+          = f.input :url, label: 'Picture URL', input_html: { class: 'form-control input-md', value: params[:analyzes].present? ? params[:analyzes][:api_url] : nil }
           %br= f.submit  class: 'form-control'
           = link_to 'Clear form',  new_analyze_path if params[:analyzes].present?
       .col-md-4
